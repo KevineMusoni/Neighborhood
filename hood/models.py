@@ -83,3 +83,19 @@ class Location(models.Model):
 
     def __str__(self):
         return self.name
+class Category(models.Model):
+    name = models.CharField(max_length=10)
+
+    def save_category(self):
+        self.save()
+
+    def delete_category(self):
+        self.delete()
+
+    def __str__(self):
+        return self.name
+class Comment(models.Model):
+  comment = models.TextField()
+  post = models.ForeignKey(Post,on_delete=models.CASCADE)
+  postername= models.ForeignKey(User, on_delete=models.CASCADE)
+  pub_date = models.DateTimeField(auto_now_add=True)
