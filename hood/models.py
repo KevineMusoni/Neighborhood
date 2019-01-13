@@ -66,4 +66,8 @@ class Business(models.Model):
         return business
 
 
+class Post(models.Model):
+    user = models.ForeignKey(Profile, related_name='profile')
+    post = models.CharField(max_length=100)
+    neighbourhood = models.ForeignKey(Neighbourhood, related_name='posts')
     
