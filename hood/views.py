@@ -91,3 +91,8 @@ def search_results(request):
     else:
         message = "You haven't searched for any term"
         return render(request, 'search.html',{"message":message})
+
+
+def location(request):
+    date = dt.date.today()
+    return render(request, 'location.html',{"date":date})
