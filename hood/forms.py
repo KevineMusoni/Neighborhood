@@ -9,6 +9,11 @@ class SignupForm(UserCreationForm):
         model = User
         fields = ('username', 'email', 'password1', 'password2')
 
+class NeighoodForm(forms.ModelForm):
+    class Meta:
+        model = Neighbourhood
+        exclude = ['admin']
+
 class EditForm(forms.ModelForm):
     class Meta:
         model = Profile
