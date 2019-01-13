@@ -11,7 +11,7 @@ class SignupForm(UserCreationForm):
         fields = ('username', 'email', 'password1', 'password2')
 
 
-class NeighoodForm(forms.ModelForm):
+class HoodForm(forms.ModelForm):
     class Meta:
         model = Neighbourhood
         exclude = ['admin']
