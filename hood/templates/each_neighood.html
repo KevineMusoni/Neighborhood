@@ -1,0 +1,139 @@
+{%extends 'base.html'%}
+{% load bootstrap4 %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>New neighbourhood</title>
+    {{form.media}}
+
+    {% block styles %}
+    {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    {% endblock %}
+
+</head>
+
+{% block content %}
+
+<body style="background-color: rgb(101, 124, 126);">
+
+    <div style="color:antiquewhite;" class="container">
+        <div class="coll">
+            <div class="row">
+                <div class="col-md-6">
+                    <img style="border-radius:50%; width:100px; height:100px;" src="{{post.image.url}}" alt="" class="img-thumbnail">
+                    <span style="color:antiquewhite;">{{ post.name}}</span><span style="color:red;" class="icon-heart">&#10084;</span>
+                </div>
+                <div class="col-md-6">
+                    <br>
+
+                    {{post.admin.username}}
+                    <small>(admin)</small>
+                </div>
+            </div>
+            <hr>
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
+                        aria-controls="nav-home" aria-selected="true">Posts</a>
+                    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab"
+                        aria-controls="nav-profile" aria-selected="false">Business</a>
+                </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                    <br>
+                    <a href="/hoods/new/post/{{post.id}}">
+                        <button class="btn btn-lignt">
+                            <i class="large material-icons">add_box</i>Add Post</button>
+                    </a>
+                    <br>
+                    <br>
+                    <h3>Posts</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            {% for brushs_item in brushs%}
+
+                            <div style="" class="card">
+                                <div style="color:antiquewhite; background-color:rgb(10, 10, 10);" class="card-header">
+                                    <p>{{brushs_item.post}}</p>
+                                </div>
+                                {% for comment in comments %}
+                                <div class="card text-white bg-secondary mb-3">
+                                    <div class="card-body firstletter">
+                                        {{comment.comment}}
+                                        <footer class="blockquote-footer" style="color:white;">
+                                            <cite title="Source Title">{{comment.postername}}</cite>
+                                        </footer>
+                                    </div>
+                                </div>
+                                <p></p>
+                                {% endfor %}
+                                <div style="text-align:center; background-color:rgb(10, 10, 10);" class="card-image"></div>
+                                <div style="background-color:rgb(10, 10, 10);" class="card-footer">
+                                    <a href="/hoods/new/comment/{{brushs_item.id}}">
+                                        <button class="btn btn-outline-primary btn-sm">add comment</button>
+                                    </a>
+
+                                </div>
+                            </div>
+                            <br>
+                            <br>
+                            {% endfor%}
+                        </div>
+                        <div class="col-md-6"></div>
+                    </div>
+
+                </div>
+                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                    <br>
+                    <a href="/hoods/new/business/{{post.id}}">
+                        <button class="btn btn-lignt">
+                            <i class="large material-icons">add_circle</i>Add Business</button>
+                    </a>
+                    <h3>Businesses</h3>
+                    <div class="row">
+                        {% for business_item in business%}
+                        <div class="col-md-4">
+                            <div style="" class="card">
+                                <div style="color:antiquewhite; background-color:rgb(10, 10, 10);" class="card-header">
+                                    <h5>{{business_item.name}}</h5>
+                                </div>
+                                <div style="text-align:center; background-color:rgb(10, 10, 10);" class="card-body">
+                                    <img src="{{business_item.image.url}}" alt="" height="250px" width="310px">
+
+                                </div>
+
+                                <div style="background-color:rgb(10, 10, 10);" class="card-footer">
+                                    <small>Phone no.
+                                        <strong>{{business_item.phone_number}}</strong>
+                                    </small>
+                                    <br>
+                                    <small>Category:
+                                        <strong>{{business_item.category}}</strong>
+                                    </small>
+                                </div>
+                            </div><br>
+                            <br>
+                        </div>
+
+                        {% endfor%}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    {% block scripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    {% bootstrap_javascript %}
+    {% endblock %}
+</body>
+{% endblock%}

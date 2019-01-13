@@ -2,33 +2,35 @@
 
 {% block content %}
 {{block.super}}
-<div class="container-fluid">
+<div style="text-align:center; padding-top: 130px; padding-bottom: 130px; " class="container-fluid" id="moda">
+
     <div class="content text-center">
         <h1>Neighbourhood</h1>
     </div>
-    <h6>{{date|date:"l d F Y"}}</h6>
+    <h6 style="text-align:center; color:rgb(253, 253, 253);">{{date|date:"l d F Y"}}</h6>
+
 </div>
 <div class="container">
     <hr>
     <a href="{% url 'new-hood'%}">
-        <button class="btn btn-outline-light btn-sm">Create a neighbourood</button>
+        <button class="btn btn-outline-light btn-sm">Create a Hood</button>
     </a>
     <hr>
     <div class="row">
         {% for hood in hoods%}
         <div class="col-md-4 col-lg-4 col-sm-6 ">
-            <div class="card">
-                <div style="text-align:center; color:antiquewhite; background-color:rgb(10, 10, 10);" class="card-header">
+            <div style="" class="card">
+                <div style="text-align:center; color:antiquewhite;" class="card-header">
                     <h5>{{ hood.name}}</h5>
                 </div>
-                <div class="card-image">
+                <div style="text-align:center; " class="card-image">
 
                     <img class="img-responsive" src="{{hood.image.url}}" alt="" height="200px" width="300px">
 
                 </div>
-                <div style="background-color:rgb(10, 10, 10);" class="card-footer">
+                <div class="card-footer">
                     <a href="/hoods/{{ hood.id}}">
-                        <button class="btn btn-outline-primary btn-sm">Join Neighbourhood &#8594;</button>
+                        <button class="btn btn-outline-primary btn-sm">Join Hood &#8594;</button>
                     </a>
                 </div>
             </div>

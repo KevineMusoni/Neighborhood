@@ -19,15 +19,6 @@ from django.core.mail import EmailMessage
 
 # app view functions
 
-def signup(request):
-    if request.method == 'POST':
-        form = SignupForm(request.POST)
-        if form.is_valid():
-            user = form.save(commit=False)
-    else:
-        form = SignupForm()
-    return render(request, 'signup.html', {'form': form})
-
 # activate user function
 def activate(request, uidb64, token):
     try:
@@ -85,6 +76,26 @@ def new_hood(request):
     else:
         form = HoodForm()
     return render(request, 'new_hood.html', {"form": form})
+def new_post(request,id):
+    date = dt.date.today()
+    hood=Neighbourhood.objects.get(id=id)
+    posts = Post.objects.filter(neighbourhood=hood)
+    comments = Comment.objects.filter(post=id).order_by('-pub_date')
+
+    form = PostForm()
+    if request.method == 'POST':
+        form = PostForm(request.POST, request.FILES)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.user = request.user.profile
+            post.profile = profile
+            post.neighbourhood = hood
+            post.save()
+            return redirect('index')
+    else:
+        form = PostForm()
+        return render(request,'new_post.html',{"form":form,"posts":posts,"hood":hood,  "date":date, 'comments':comments})
+
 
 @login_required(login_url='/accounts/login/')
 def search_results(request):
@@ -136,7 +147,7 @@ def hoods(request,id):
 
     brushs = Post.objects.filter(neighbourhood=post)
     business = Business.objects.filter(neighbourhood=post)
-    return render(request,'each_neighbourhood.html',{"post":post,"date":date,"brushs":brushs, "business":business})
+    return render(request,'each_neighood.html',{"post":post,"date":date,"brushs":brushs, "business":business})
 
 
 def post_business(request,id):
