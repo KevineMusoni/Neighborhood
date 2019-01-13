@@ -1,0 +1,64 @@
+{%extends 'base.html'%}
+{% load bootstrap4 %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>New neighbourhood</title>
+    {{form.media}}
+
+    {% block styles %}
+    {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static 'css/proj.css' %}">
+    {% endblock %}
+
+</head>
+{% block content %}
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div style="color:antiquewhite; background-color:rgb(10, 10, 10);" class="card-header">
+                <p>{{brush.post}}</p>
+            </div>
+
+        </div>
+    </div>
+    <br>
+    <br>
+</div>
+<div class="card-footer">
+
+    {% if comments %}
+    {% for comment in comments %}
+    <div class="card text-white bg-secondary mb-3">
+        <div class="card-body firstletter">
+            {{comment.comment}}
+            <footer class="blockquote-footer" style="color:white;">
+                <cite title="Source Title">{{comment.postername}}</cite>
+            </footer>
+        </div>
+    </div>
+    {% endfor %}
+    {% else %}
+    <p>No comments found</p>
+    {% endif %}
+    <div style="text-align:center; background-color:rgb(10, 10, 10);" class="card-image"></div>
+    <div style="background-color:rgb(10, 10, 10);" class="card-footer">
+        <form action="/hoods/new/comment/{{brush.id}}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            {% bootstrap_form form %}
+            <input type="submit" class="btn btn-primary" value="Post">
+        </form>
+
+    </div>
+
+</div>
+
+</div>
+
+{% endblock %}
