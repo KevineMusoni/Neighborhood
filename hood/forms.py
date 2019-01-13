@@ -18,3 +18,8 @@ class EditForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ['bio','profile_pic']
+
+class PostForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        exclude = ['user', 'neighbourhood']
