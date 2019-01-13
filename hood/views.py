@@ -62,7 +62,21 @@ def edit_profile(request):
         signup_form =EditForm()
 
     return render(request, 'profile/edit_profile.html', {"date": date, "form":signup_form,"profile":profile})
-
+@login_required(login_url='/accounts/login/')
+def new_hood(request):
+    current_user = request.user
+    profile = Profile.objects.get(user=current_user)
+    if request.method == 'POST':
+        form = HoodForm(request.POST, request.FILES)
+        if form.is_valid():
+            hood = form.save(commit=False)
+            hood.user = current_user
+            hood.profile = profile
+            hood.save()
+        return redirect('index')
+    else:
+        form = HoodForm()
+    return render(request, 'new_hood.html', {"form": form})
 
 @login_required(login_url='/accounts/login/')
 def search_results(request):
