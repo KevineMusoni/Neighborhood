@@ -119,6 +119,18 @@ def newcomment(request,id):
     return render(request, 'newcomment.html',{'brush':brush,"comments":comments,"form":form})
 
 
+
+@login_required(login_url='/accounts/login/')
+def hoods(request,id):
+    current_user=request.user
+    date = dt.date.today()
+    post=Neighbourhood.objects.get(id=id)
+
+    brushs = Post.objects.filter(neighbourhood=post)
+    business = Business.objects.filter(neighbourhood=post)
+    return render(request,'each_neighbourhood.html',{"post":post,"date":date,"brushs":brushs, "business":business})
+
+
 def post_business(request,id):
     date = dt.date.today()
     hood=Neighbourhood.objects.get(id=id)
