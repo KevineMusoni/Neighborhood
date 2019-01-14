@@ -20,14 +20,14 @@
 
 {% block content %}
 
-<body style="background-color: rgb(101, 124, 126);">
+<body style="background-color: white">
 
     <div style="color:antiquewhite;" class="container">
         <div class="coll">
             <div class="row">
                 <div class="col-md-6">
                     <img style="border-radius:50%; width:100px; height:100px;" src="{{post.image.url}}" alt="" class="img-thumbnail">
-                    <span style="color:antiquewhite;">{{ post.name}}</span><span style="color:red;" class="icon-heart">&#10084;</span>
+                    <span style="color:black">{{ post.name}}</span>
                 </div>
                 <div class="col-md-6">
                     <br>
@@ -54,13 +54,13 @@
                     </a>
                     <br>
                     <br>
-                    <h3>Posts</h3>
+                    <h3 style="color:black">Posts</h3>
                     <div class="row">
                         <div class="col-md-6">
                             {% for brushs_item in brushs%}
 
                             <div style="" class="card">
-                                <div style="color:antiquewhite; background-color:rgb(10, 10, 10);" class="card-header">
+                                <div style="color:antiquewhite; background-color:#15153f" class="card-header">
                                     <p>{{brushs_item.post}}</p>
                                 </div>
                                 {% for comment in comments %}
@@ -74,8 +74,8 @@
                                 </div>
                                 <p></p>
                                 {% endfor %}
-                                <div style="text-align:center; background-color:rgb(10, 10, 10);" class="card-image"></div>
-                                <div style="background-color:rgb(10, 10, 10);" class="card-footer">
+                                <div style="text-align:center; background-color:white" class="card-image"></div>
+                                <div style="background-color:white" class="card-footer">
                                     <a href="/hoods/new/comment/{{brushs_item.id}}">
                                         <button class="btn btn-outline-primary btn-sm">add comment</button>
                                     </a>

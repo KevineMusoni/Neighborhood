@@ -12,6 +12,11 @@
                 <a class="nav-link" href="{% url 'location'%}">location</a>
 
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'new-hood'%}">Add NeiHood</a>
+            
+            </li>
+            
         </ul>
         {% if user.is_authenticated %}
         {% if request.user.profile.profile_pic %}
@@ -49,7 +54,7 @@
             </form>
         {% else%}
         <a href="/accounts/login">
-            <button id="but" class="btn btn-danger">Log in</button>
+            <button id="btn" class="btn btn-danger">Log in</button>
         </a>
 
         {% endif%}

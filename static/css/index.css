@@ -32,3 +32,10 @@ font-family: 'Roboto Condensed', sans-serif;
     margin-left: 50%;
     width: 300px;
 }
+#profile{
+    color: white;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+.comments{
+    font-family: 'Roboto Condensed', sans-serif;
+}

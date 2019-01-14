@@ -13,7 +13,7 @@
 
     {% block styles %}
     {% bootstrap_css %}
-    <link rel="stylesheet" href="{% static 'css/proj.css' %}">
+    <link rel="stylesheet" href="{% static 'css/inderx.css' %}">
     {% endblock %}
 
 </head>
@@ -21,7 +21,7 @@
 <div class="row">
     <div class="col-md-6">
         <div class="card">
-            <div style="color:antiquewhite; background-color:rgb(10, 10, 10);" class="card-header">
+            <div style="color:antiquewhite; background-color:#15153f" class="card-header">
                 <p>{{brush.post}}</p>
             </div>
 
@@ -34,11 +34,10 @@
 
     {% if comments %}
     {% for comment in comments %}
-    <div class="card text-white bg-secondary mb-3">
-        <div class="card-body firstletter">
+    <h3 class="comments">Comments:</h3>
             {{comment.comment}}
             <footer class="blockquote-footer" style="color:white;">
-                <cite title="Source Title">{{comment.postername}}</cite>
+                <cite title="Source Title" style="color:black">said -{{comment.postername}}</cite>
             </footer>
         </div>
     </div>
@@ -47,7 +46,7 @@
     <p>No comments found</p>
     {% endif %}
     <div style="text-align:center; background-color:rgb(10, 10, 10);" class="card-image"></div>
-    <div style="background-color:rgb(10, 10, 10);" class="card-footer">
+    <div class="card-footer">
         <form action="/hoods/new/comment/{{brush.id}}" method="post" enctype="multipart/form-data">
             {% csrf_token %}
 
