@@ -2,25 +2,20 @@
 
 {% block content %}
 {{block.super}}
-<div style="text-align:center; padding-top: 130px; padding-bottom: 130px; " class="container-fluid" id="moda">
-
-    <div class="content text-center">
-        <h1>Neighbourhood</h1>
+<div id="body-content" style="text-align:center; padding-top: 130px; padding-bottom: 130px; " class="container-fluid" id="moda">
+<div class="content">
+    <h6 style="text-align:center">{{date|date:"l d F Y"}}</h6>
     </div>
-    <h6 style="text-align:center; color:rgb(253, 253, 253);">{{date|date:"l d F Y"}}</h6>
-
 </div>
 <div class="container">
-    <hr>
     <a href="{% url 'new-hood'%}">
         <button class="btn btn-outline-light btn-sm">Create a Hood</button>
     </a>
-    <hr>
     <div class="row">
         {% for hood in hoods%}
         <div class="col-md-4 col-lg-4 col-sm-6 ">
-            <div style="" class="card">
-                <div style="text-align:center; color:antiquewhite;" class="card-header">
+            <div class="card">
+                <div style="text-align:center; color:black" class="card-header">
                     <h5>{{ hood.name}}</h5>
                 </div>
                 <div style="text-align:center; " class="card-image">
