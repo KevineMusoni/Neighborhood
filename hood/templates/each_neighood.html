@@ -59,7 +59,7 @@
                         <div class="col-md-6">
                             {% for brushs_item in brushs%}
 
-                            <div style="" class="card">
+                            <div class="card">
                                 <div style="color:antiquewhite; background-color:#15153f" class="card-header">
                                     <p>{{brushs_item.post}}</p>
                                 </div>
@@ -96,20 +96,20 @@
                         <button class="btn btn-lignt">
                             <i class="large material-icons">add_circle</i>Add Business</button>
                     </a>
-                    <h3>Businesses</h3>
+                    <h3 id="profile" style="color:black">Businesses:</h3>
                     <div class="row">
                         {% for business_item in business%}
                         <div class="col-md-4">
-                            <div style="" class="card">
-                                <div style="color:antiquewhite; background-color:rgb(10, 10, 10);" class="card-header">
-                                    <h5>{{business_item.name}}</h5>
+                            <div class="card">
+                                <div style="color:antiquewhite; background-color:white" class="card-header">
+                                    <h5 style="color:black">{{business_item.name}}</h5>
                                 </div>
-                                <div style="text-align:center; background-color:rgb(10, 10, 10);" class="card-body">
+                                <div style="text-align:center; background-color:white" class="card-body">
                                     <img src="{{business_item.image.url}}" alt="" height="250px" width="310px">
 
                                 </div>
 
-                                <div style="background-color:rgb(10, 10, 10);" class="card-footer">
+                                <div style="background-color:white; color: black" class="card-footer">
                                     <small>Phone no.
                                         <strong>{{business_item.phone_number}}</strong>
                                     </small>

@@ -33,7 +33,7 @@
                         <h2>Add Business</h2>
                     </div>
                     <div class="card-body">
-                        <form action="/hoods/new/post/{{hood.id}}" method="post" enctype="multipart/form-data">
+                        <form action="/hoods/new/business/{{hood.id}}" method="post" enctype="multipart/form-data">
                             {%csrf_token%}
 
                             {% bootstrap_form form%}
