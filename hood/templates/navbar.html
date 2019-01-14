@@ -3,7 +3,7 @@
         aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand" href="/">NeiHood</a>
+    <a id="icon" class="navbar-brand" href="/">NeiHood</a>
 
     <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
@@ -20,33 +20,33 @@
         </section>
         <br>
         {% else %}
-        <img style="border-radius: 50% ; padding: 0.15rem;  background: linear-gradient(to right bottom);"
-            class=" img-circle" src="https://www.bristolbrewing.com/wp-content/uploads/2017/08/default-avatar.png" alt=""
-            width="70px" height="70px">
-        </section>
-        <br>
+                <h5 style="color:black" class="nav-item dropdown">
+                    <a style="color:black" class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        
+                        <span id="uname">{{ user.username}}</span>
+                
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="/profile/">Profile</a>
+                        <a class="dropdown-item" href="/admin/">Admin</a>
+                
+                        <a class="dropdown-item" href="/accounts/password/change">Change password</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/logout">Log out</a>
+                    </div>
+                </h5>
 
         {% endif %}
+        <img style="border-radius: 50% ; padding: 0.15rem;  background: linear-gradient(to right bottom);"
+                    class=" img-circle" src="https://www.bristolbrewing.com/wp-content/uploads/2017/08/default-avatar.png" alt=""
+                    width="70px" height="70px">
+                </section>
+                <br>
 
-        <h4 style="color:white" class="nav-item dropdown">
-            <a style="color:white" class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span id="uname">{{ user.username}}</span>
-
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="/profile/">Profile</a>
-                <a class="dropdown-item" href="/admin/">Admin</a>
-
-                <a class="dropdown-item" href="/accounts/password/change">Change password</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="/logout">Log out</a>
-            </div>
-        </h4>
-
-        <form role="search" action="{% url 'search_results' %}" class="form-inline my-2 my-lg-0">
-            <input type="search" name="business" placeholder="Search">
-        </form>
+            <form id="search" role="search" action="{% url 'search_results' %}" class="form-inline my-2 my-lg-0">
+                <input type="search" name="business" placeholder="search business...">
+            </form>
         {% else%}
         <a href="/accounts/login">
             <button id="but" class="btn btn-danger">Log in</button>

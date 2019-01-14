@@ -8,11 +8,11 @@
         <div class="col-md-5">
             {% if profile.profile_pic %}
             <section>
-                <img data-toggle="modal" data-target="#exampleModalCenter" style="border-radius: 50% ; padding: 0.15rem;  background: linear-gradient(to right bottom, #2cd88888, #2ec96970);"
+                <img data-toggle="modal" data-target="#exampleModalCenter" style="border-radius: 50% ; padding: 0.15rem;  background: linear-gradient(to right bottom);"
                     class=" img-circle" src="{{ profile.profile_pic.url}}" alt="" width="250px" height="250px">
                 {{ photos_item.profile.user.username}}</section>
             {% else %}
-            <img data-toggle="modal" data-target="#exampleModalCenter" style="border-radius: 50% ; padding: 0.15rem;   background: linear-gradient(to right bottom, #2cd88888, #2ec96970);"
+            <img data-toggle="modal" data-target="#exampleModalCenter" style="border-radius: 50% ; padding: 0.15rem;   background: linear-gradient(to right bottom);"
                 class=" img-circle" src="https://www.bristolbrewing.com/wp-content/uploads/2017/08/default-avatar.png"
                 alt="" width="250px" height="250px">
             {{ photos_item.profile.user.username}}</section>

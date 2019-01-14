@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
+@import url('https://fonts.googleapis.com/css?family=Timmana');
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script');
 #body-content{
     background-image: url("../../static/css/img1.jpeg");
     width: 100vw;
@@ -6,7 +9,8 @@
 }
 #uname{
     font-size: 20px;
-    color: black;
+    color: grey;
+    margin-bottom: 60px;
 }
 .content{
     background-color: black;
@@ -15,4 +19,16 @@
     margin-bottom: 50px;
     opacity: 0.6;
     color: white;
+}
+.sub-title{
+font-family: 'Roboto Condensed', sans-serif;
+}
+#icon{
+    font-family: 'Dancing Script', cursive;
+    font-size: 50px;
+}
+#search{
+    margin-right: 50%;
+    margin-left: 50%;
+    width: 300px;
 }
